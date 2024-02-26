@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bknxwv2iee61s"]
+
+[ext_resource type="Script" path="res://Scripts/Scripts Only for Homework Exercises/rotate_for_HW_scene_one.gd" id="2_e6ps1"]
+[ext_resource type="Texture2D" uid="uid://c5s3a28nqkban" path="res://Art/sonic-transparent.png" id="7_c7e4m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 173.0
+offset_top = 367.0
+offset_right = 354.0
+offset_bottom = 464.0
+text = "I should rotate Sonic"
+
+[node name="Sonic-transparent" type="Sprite2D" parent="."]
+position = Vector2(230, 153)
+scale = Vector2(0.452381, 0.452381)
+texture = ExtResource("7_c7e4m")
+script = ExtResource("2_e6ps1")
+rotation_speed = -100
+
+[node name="Instructions" type="RichTextLabel" parent="."]
+offset_left = 488.0
+offset_top = 101.0
+offset_right = 901.0
+offset_bottom = 390.0
+text = "For this scene, we need the button to rotate Sonic, but something is missing!
+
+NOTE: the scripts we use for each homework scene are in the special \"Scripts Only for Homework\" folder inside the \"Scripts\" folder.
+
+PS (You can use the visibility eye to reveal a hint in the Scene Hierarchy!)"
+
+[node name="Hint" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 501.0
+offset_top = 302.0
+offset_right = 914.0
+offset_bottom = 591.0
+theme_override_colors/default_color = Color(0, 0.941176, 0.780392, 1)
+text = "HINT:
+
+You'll need to copy and paste a function in the rotate_for_HW_scene_one.gd file, but first you'll need to do something else (NOT in the code)
+
+"

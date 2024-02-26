@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Buttons"
-run/main_scene="res://buttons.tscn"
+run/main_scene="res://demo_scene_class.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Art/icon.svg"
 
 [input]
 

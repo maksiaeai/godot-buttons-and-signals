@@ -1,13 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgrilpapt7ttv"]
+[gd_scene load_steps=14 format=3 uid="uid://ddukeggusuj6w"]
 
-[ext_resource type="Script" path="res://Scripts/CharacterMovement.gd" id="1_fxfif"]
-[ext_resource type="Texture2D" uid="uid://di6ywdo5o23xu" path="res://icon.svg" id="1_nulm8"]
-[ext_resource type="Script" path="res://Scripts/ShowHide.gd" id="2_qy0ps"]
-[ext_resource type="Texture2D" uid="uid://bcj18f1u388bl" path="res://Art/TileMap_SF/tileset_sf.png" id="3_rtbue"]
-[ext_resource type="Script" path="res://Scripts/CollisionController.gd" id="4_lrhfd"]
+[ext_resource type="Script" path="res://Scripts/BadCoupledScriptDontUse.gd" id="1_gdrmb"]
+[ext_resource type="Texture2D" uid="uid://bcj18f1u388bl" path="res://Art/TileMap_SF/tileset_sf.png" id="1_w7gjv"]
+[ext_resource type="Script" path="res://Scripts/ShowHide.gd" id="2_k0ywr"]
+[ext_resource type="Script" path="res://Scripts/CharacterMovement.gd" id="3_tqhok"]
+[ext_resource type="Texture2D" uid="uid://di6ywdo5o23xu" path="res://Art/icon.svg" id="4_xqfje"]
+[ext_resource type="Script" path="res://Scripts/CollisionController.gd" id="5_4jfv7"]
+[ext_resource type="Texture2D" uid="uid://c5s3a28nqkban" path="res://Art/sonic-transparent.png" id="6_e0ub0"]
+[ext_resource type="Script" path="res://Scripts/rotate.gd" id="7_t0csx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwbse"]
-texture = ExtResource("3_rtbue")
+texture = ExtResource("1_w7gjv")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -5558,12 +5561,21 @@ size = Vector2(64, 64)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 332.0
-offset_top = 305.0
-offset_right = 513.0
-offset_bottom = 402.0
-text = "I am button"
+[node name="GoodButton" type="Button" parent="."]
+offset_left = 173.0
+offset_top = 367.0
+offset_right = 354.0
+offset_bottom = 464.0
+text = "I am good button"
+
+[node name="BadButton" type="Button" parent="." node_paths=PackedStringArray("thing_to_rotate")]
+offset_left = 438.0
+offset_top = 367.0
+offset_right = 619.0
+offset_bottom = 464.0
+text = "I am bad button"
+script = ExtResource("1_gdrmb")
+thing_to_rotate = NodePath("../Sonic-transparent")
 
 [node name="BackgroundTilemap" type="TileMap" parent="."]
 position = Vector2(16, 0)
@@ -5572,23 +5584,22 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327707, 3145728, 36, 393243, 3145728, 37, 458779, 3145728, 38, 524315, 3145728, 39, 589851, 3145728, 40, 655387, 3145728, 41, 720923, 3145728, 42, 786459, 3145728, 43, 327708, 3211264, 36, 393244, 3211264, 37, 458780, 3211264, 38, 524316, 3211264, 39, 589852, 3211264, 40, 655388, 3211264, 41, 720924, 3211264, 42, 786460, 3211264, 43, 327709, 3276800, 36, 393245, 3276800, 37, 458781, 3276800, 38, 524317, 3276800, 39, 589853, 3276800, 40, 655389, 3276800, 41, 720925, 3276800, 42, 786461, 3276800, 43, 327710, 3342336, 36, 393246, 3342336, 37, 458782, 3342336, 38, 524318, 3342336, 39, 589854, 3342336, 40, 655390, 3342336, 41, 720926, 3342336, 42, 786462, 3342336, 43, 327711, 3407872, 36, 393247, 3407872, 37, 458783, 3407872, 38, 524319, 3407872, 39, 589855, 3407872, 40, 655391, 3407872, 41, 720927, 3407872, 42, 786463, 3407872, 43, 327712, 3473408, 36, 393248, 3473408, 37, 458784, 3473408, 38, 524320, 3473408, 39, 589856, 3473408, 40, 655392, 3473408, 41, 720928, 3473408, 42, 786464, 3473408, 43, 327713, 3538944, 36, 393249, 3538944, 37, 458785, 3538944, 38, 524321, 3538944, 39, 589857, 3538944, 40, 655393, 3538944, 41, 720929, 3538944, 42, 786465, 3538944, 43, 327714, 3604480, 36, 393250, 3604480, 37, 458786, 3604480, 38, 524322, 3604480, 39, 589858, 3604480, 40, 655394, 3604480, 41, 720930, 3604480, 42, 786466, 3604480, 43, 327715, 3670016, 36, 393251, 3670016, 37, 458787, 3670016, 38, 524323, 3670016, 39, 589859, 3670016, 40, 655395, 3670016, 41, 720931, 3670016, 42, 786467, 3670016, 43, 327716, 3735552, 36, 393252, 3735552, 37, 458788, 3735552, 38, 524324, 3735552, 39, 589860, 3735552, 40, 655396, 3735552, 41, 720932, 3735552, 42, 786468, 3735552, 43, 327717, 3801088, 36, 393253, 3801088, 37, 458789, 3801088, 38, 524325, 3801088, 39, 589861, 3801088, 40, 655397, 3801088, 41, 720933, 3801088, 42, 786469, 3801088, 43, 327718, 3866624, 36, 393254, 3866624, 37, 458790, 3866624, 38, 524326, 3866624, 39, 589862, 3866624, 40, 655398, 3866624, 41, 720934, 3866624, 42, 786470, 3866624, 43, 327719, 3932160, 36, 393255, 3932160, 37, 458791, 3932160, 38, 524327, 3932160, 39, 589863, 3932160, 40, 655399, 3932160, 41, 720935, 3932160, 42, 786471, 3932160, 43, 327720, 3997696, 36, 393256, 3997696, 37, 458792, 3997696, 38, 524328, 3997696, 39, 589864, 3997696, 40, 655400, 3997696, 41, 720936, 3997696, 42, 786472, 3997696, 43, 327721, 4063232, 36, 393257, 4063232, 37, 458793, 4063232, 38, 524329, 4063232, 39, 589865, 4063232, 40, 655401, 4063232, 41, 720937, 4063232, 42, 786473, 4063232, 43, 327722, 4128768, 36, 393258, 4128768, 37, 458794, 4128768, 38, 524330, 4128768, 39, 589866, 4128768, 40, 655402, 4128768, 41, 720938, 4128768, 42, 786474, 4128768, 43, 327723, 4194304, 36, 393259, 4194304, 37, 458795, 4194304, 38, 524331, 4194304, 39, 589867, 4194304, 40, 655403, 4194304, 41, 720939, 4194304, 42, 786475, 4194304, 43, 327724, 4259840, 36, 393260, 4259840, 37, 458796, 4259840, 38, 524332, 4259840, 39, 589868, 4259840, 40, 655404, 4259840, 41, 720940, 4259840, 42, 786476, 4259840, 43, 327725, 4325376, 36, 393261, 4325376, 37, 458797, 4325376, 38, 524333, 4325376, 39, 589869, 4325376, 40, 655405, 4325376, 41, 720941, 4325376, 42, 786477, 4325376, 43, 327726, 4390912, 36, 393262, 4390912, 37, 458798, 4390912, 38, 524334, 4390912, 39, 589870, 4390912, 40, 655406, 4390912, 41, 720942, 4390912, 42, 786478, 4390912, 43)
 
 [node name="ForegroundTilemap" type="TileMap" parent="."]
-visible = false
 position = Vector2(336, 0)
 tile_set = SubResource("TileSet_m2pp3")
 format = 2
 layer_0/tile_data = PackedInt32Array(327703, 4456448, 36, 393239, 4456448, 37, 458775, 4456448, 38, 524311, 4456448, 39, 327704, 4521984, 36, 393240, 4521984, 37, 458776, 4521984, 38, 524312, 4521984, 39, 327705, 4587520, 36, 393241, 4587520, 37, 458777, 4587520, 38, 524313, 4587520, 39, 327706, 4653056, 36, 393242, 4653056, 37, 458778, 4653056, 38, 524314, 4653056, 39)
-script = ExtResource("2_qy0ps")
+script = ExtResource("2_k0ywr")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(736, 248)
 collision_mask = 3
 motion_mode = 1
-script = ExtResource("1_fxfif")
+script = ExtResource("3_tqhok")
 movement_speed = 100.0
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_nulm8")
+texture = ExtResource("4_xqfje")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_08uc2")
@@ -5604,11 +5615,20 @@ shape = SubResource("RectangleShape2D_r30gh")
 position = Vector2(736, 112)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_lrhfd")
+script = ExtResource("5_4jfv7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_4w6ir")
 
+[node name="Sonic-transparent" type="Sprite2D" parent="."]
+position = Vector2(230, 153)
+scale = Vector2(0.452381, 0.452381)
+texture = ExtResource("6_e0ub0")
+script = ExtResource("7_t0csx")
+rotation_speed = -100
+
+[connection signal="pressed" from="GoodButton" to="Sonic-transparent" method="_on_button_pressed"]
+[connection signal="pressed" from="BadButton" to="BadButton" method="_on_pressed"]
 [connection signal="body_entered" from="Area2D" to="ForegroundTilemap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="ForegroundTilemap" method="_on_area_2d_body_exited"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnargvjvwt8bd"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterMovement.gd" id="1_mpwti"]
+[ext_resource type="Texture2D" uid="uid://di6ywdo5o23xu" path="res://Art/icon.svg" id="2_ekl57"]
+[ext_resource type="Texture2D" uid="uid://c5s3a28nqkban" path="res://Art/sonic-transparent.png" id="3_amwwb"]
+[ext_resource type="Script" path="res://Scripts/Scripts Only for Homework Exercises/rotate_for_HW_scene_three.gd" id="4_0jp2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08uc2"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r30gh"]
+size = Vector2(64, 128)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(736, 248)
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_mpwti")
+movement_speed = 100.0
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ekl57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_08uc2")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(768, 208)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-32, -64)
+shape = SubResource("RectangleShape2D_r30gh")
+
+[node name="Sonic-transparent" type="Sprite2D" parent="."]
+position = Vector2(230, 153)
+scale = Vector2(0.452381, 0.452381)
+texture = ExtResource("3_amwwb")
+script = ExtResource("4_0jp2m")
+rotation_speed = -100
+
+[node name="Instructions" type="RichTextLabel" parent="."]
+offset_left = 201.0
+offset_top = 296.0
+offset_right = 614.0
+offset_bottom = 585.0
+text = "For this scene, we want sonic to rotate when Godotbot walks into the invisible detection area AND stop rotating when Godotbot leaves.
+
+NOTE: the scripts we use for each homework scene are in the special \"Scripts Only for Homework\" folder inside the \"Scripts\" folder.
+
+PS (You can use the visibility eye to reveal a hint in the Scene Hierarchy!)"
+
+[node name="Hint" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 680.0
+offset_top = 327.0
+offset_right = 1093.0
+offset_bottom = 616.0
+theme_override_colors/default_color = Color(0, 0.941176, 0.780392, 1)
+text = "HINT:
+
+To use the correct signal, you'll have to remember what kind of thing Godotbot is..."
+
+[connection signal="body_entered" from="Area2D" to="Sonic-transparent" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Sonic-transparent" method="_on_area_2d_body_exited"]
