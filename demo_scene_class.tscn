@@ -5554,7 +5554,7 @@ sources/0 = SubResource("TileSetAtlasSource_xwbse")
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r30gh"]
-size = Vector2(64, 64)
+size = Vector2(64, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w6ir"]
 size = Vector2(64, 64)
@@ -5562,7 +5562,6 @@ size = Vector2(64, 64)
 [node name="Node2D" type="Node2D"]
 
 [node name="GoodButton" type="Button" parent="."]
-visible = false
 offset_left = 173.0
 offset_top = 367.0
 offset_right = 354.0
@@ -5580,7 +5579,6 @@ script = ExtResource("1_65xtm")
 thing_to_rotate = NodePath("../Sonic-transparent")
 
 [node name="BackgroundTilemap" type="TileMap" parent="."]
-visible = false
 position = Vector2(16, 0)
 tile_set = SubResource("TileSet_m2pp3")
 format = 2
@@ -5612,7 +5610,7 @@ shape = SubResource("RectangleShape2D_08uc2")
 position = Vector2(768, 208)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-32, -32)
+position = Vector2(-32, -64)
 shape = SubResource("RectangleShape2D_r30gh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -5623,7 +5621,6 @@ collision_mask = 2
 script = ExtResource("6_2emjn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
 shape = SubResource("RectangleShape2D_4w6ir")
 
 [node name="Sonic-transparent" type="Sprite2D" parent="."]
@@ -5633,4 +5630,11 @@ texture = ExtResource("7_73iyf")
 script = ExtResource("8_40js2")
 rotation_speed = -100
 
+[connection signal="pressed" from="GoodButton" to="Sonic-transparent" method="_on_good_button_pressed"]
 [connection signal="pressed" from="BadButton" to="BadButton" method="_on_pressed"]
+[connection signal="body_entered" from="Area2D" to="ForegroundTilemap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Sonic-transparent" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="ForegroundTilemap" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D" to="StaticBody2D" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D" to="Sonic-transparent" method="_on_area_2d_body_exited"]
