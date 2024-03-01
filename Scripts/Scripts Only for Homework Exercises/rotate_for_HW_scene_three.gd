@@ -24,4 +24,6 @@ func _on_area_2d_body_entered(body:Node2D):
 	is_rotating = true
 	pass # Replace with function body.
 
-
+func _on_area_2d_body_exited(body):
+	is_rotating = false 
+	pass # Replace with function body.

@@ -61,5 +61,4 @@ text = "HINT:
 
 To use the correct signal, you'll have to remember what kind of thing Godotbot is..."
 
-[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Sonic-transparent" method="_on_area_2d_body_entered"]
