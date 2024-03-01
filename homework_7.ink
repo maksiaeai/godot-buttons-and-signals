@@ -54,8 +54,109 @@ Logan, curious, drops his original train of thought. "Oh? Distracted by what?"
 
 // First "real" choice. Narrator wants you to be quiet, but you want to point out the streetlight. 
 * You don't want to say. 
-    -> pro_narrator_1
+    "It's nothing, never mind," you say. You pick up your fork and start eating. 
+
+    Logan isn't convinced. "Are you sure?" he asks. 
+    
+    * * (good_ending) "Yes, I'm sure." // This is the good ending
+    
+        Logan is nosy, but he knows when not to push boundaries. He pauses for a moment. "Hm. Okay." 
+        
+        The both of you continue to eat lunch, but without anything to say, the meal is silent. -> END
+    
+    * * (point_out_streetlight) "There's a weird streetlight outside." // all you really want to do is talk about the streetlight, apparently
+        You say. You're a bit surprised by yourself. Why would you say that?
+
+        Logan is also confused. "I'm sorry, what?" He looks out the window too. "I mean... There are streetlights, but none of them really stick out to me. Which one's weird?"
+        // Give one more chance to get back on track
+        * * * "That one." 
+            You point at the streetlight that's caught your attention. Functionally, it looks identical to all of the other ones. And yet, there's something about it that seems different. 
+
+            You know you shouldn't be talking about it, though. 
+            
+            Logan can't seem to figure out which one you're looking at. "They all look the same to me," he says, standing up and craning his neck to try and look at the window from your point of view. 
+            
+            Eventually he sits back down, but he doesn't keep eating yet. There's a look of worry on his face. 
+
+            * * * * "Why are you looking at me like that? What's wrong?" 
+            
+                The worried look on Logan's face doesn't fade. "I don't know, I just feel like something's wrong. You're talking about random streetlights. It's weird."
+                
+                It's not weird. You just can't talk about it to anyone. 
+                
+                Yes, that makes sense. You decide to try and change the subject.
+                
+                * * * * * [Actually do change the subject] 
+                
+                    "I don't really know what to say next," you admit, "but I do want to change the subject."
+                    
+                    "Are you sure?" Logan asks. 
+                    
+                    * * * * * * -> good_ending
+                
+                * * * * * "It's not weird. It's the streetlight that's weird." 
+                
+                    "Hey, listen to me..." 
+
+                    // Narrator directly tells you not to listen
+                    
+                    You know you shouldn't be listening to him. You don't want to listen to him. You really don't want to listen to him. 
+                    
+                    * * * * * * You stop listening.
+                    
+                        But this voice in your head is getting louder, and the streetlight seems like it's beckoning to you. Unable to contain yourself, you decide that maybe going to the streetlight itself will solve it, and so you get up and run away, out of the dining hall. -> END
+                    
+                    * * * * * * But you listen to him anyway. 
+                        Looking nervous, Logan starts speaking again. 
+
+                        "Dtohne'rte 'ysosum edtahrien glwirsotnegnh etroe him." // Don't you dare listen to him + There's something wrong here
+                        
+                        * * * * * * * "What?" // Both of these endings are bad
+                            "ID'OmN rOeTaLlIlSy TwEoNrTrOiHeIdM about you." // DO NOT LISTEN TO HIM + I'm really worried about you
+                            
+                            "What about me?" You say, unable to think of anything else. 
+                            
+                            But you can't hear him. This voice in your head that dictates your every move grows louder and louder, drowning Logan out, until you feel the need to shut your ears. 
+                            
+                            Hands pressed to your ears, you run out of the dining hall, abandoning him. -> END
+                        
+                        * * * * * * * Don't worry about it. You're not supposed to listen anyway. 
+                        
+                            But he continues speaking nothing but gibberish. Every time he starts to speak, something garbled comes out. Eventually, this voice in your head that dictates your every move grows louder and louder, drowning Logan out, until you feel the need to shut your ears. 
+                            Hands pressed to your ears, you run out of the dining hall, abandoning him. -> END
+
+            
+            * * * * "Don't worry about it, it's fine. Really. Let's go back to what you were saying."
+            
+            Logan pauses for a moment. "I... don't really remember what I was saying, if I'm being honest." 
+            
+            "Well, then, that's okay."
+            
+            "Are you okay?" Logan asks.
+            
+            "Yes."
+            
+            "Are you sure?"
+            
+            * * * * * -> good_ending
+
+        * * * "Never mind, I must just be seeing things." 
+        
+            "Are you sure?" Logan asks. 
+            * * * * -> good_ending
+        
+* ["There's a weird streetlight outside."] 
+    -> point_out_streetlight
+
+/* 
+
+// Give one more chance to get back on track
+* "That one." -> anti_narrator_2
+    
+* "Never mind, I must just be seeing things." -> pro_narrator_3
+    
 * "There's a weird streetlight outside." -> anti_narrator_1
+
 
 == pro_narrator_1 ==
 "It's nothing, never mind," you say. You pick up your fork and start eating. 
@@ -97,12 +198,23 @@ Eventually he sits back down, but he doesn't keep eating yet. There's a look of 
 -> anti_narrator_3
 
 * "Never mind, it's fine. Really. Let's go back to what you were saying."
+-> pro_narrator_4
 
 == anti_narrator_3 ==
 
 The worried look on Logan's face doesn't fade. "I don't know, I just feel like something's wrong. You're talking about random streetlights. It's weird."
 
+It's not weird. You just can't talk about it to anyone. 
+
+Yes, that makes sense. You decide to try and change the subject.
+
+* [Actually do change the subject] -> pro_narrator_5
+* "It's not weird. It's the streetlight that's weird." -> anti_narrator_4
+
 == listening ==
+
+"Hey, listen to me..." 
+
 // Narrator directly tells you not to listen
 
 You know you shouldn't be listening to him. You don't want to listen to him. You really don't want to listen to him. 
@@ -114,9 +226,14 @@ You know you shouldn't be listening to him. You don't want to listen to him. You
 
 == gibberish ==
 
-Dtohne'rte 'ysosum edtahrien glwirsotnegnh etroe. him. // Don't you dare listen to him + There's something wrong here. 
+Looking nervous, Logan starts speaking again. 
 
-What?
+"Dtohne'rte 'ysosum edtahrien glwirsotnegnh etroe him." // Don't you dare listen to him + There's something wrong here
+
+* "What?"
+* Don't worry about it. You're not supposed to listen anyway. 
+
+*/
 
 
 
