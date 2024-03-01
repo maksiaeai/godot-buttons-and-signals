@@ -55,3 +55,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	
 	pass # Replace with function body.
+
+
+func _on_foreground_tilemap_visibility_changed():
+	pass # Replace with function body.
