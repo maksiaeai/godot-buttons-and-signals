@@ -39,7 +39,6 @@ position = Vector2(230, 153)
 scale = Vector2(0.452381, 0.452381)
 texture = ExtResource("1_1tjsw")
 script = ExtResource("8_esh7c")
-rotation_speed = -100
 
 [node name="Instructions" type="RichTextLabel" parent="."]
 offset_left = 201.0
@@ -53,7 +52,6 @@ NOTE: the scripts we use for each homework scene are in the special \"Scripts On
 PS (You can use the visibility eye to reveal a hint in the Scene Hierarchy!)"
 
 [node name="Hint" type="RichTextLabel" parent="."]
-visible = false
 offset_left = 680.0
 offset_top = 327.0
 offset_right = 1093.0
@@ -62,3 +60,6 @@ theme_override_colors/default_color = Color(0, 0.941176, 0.780392, 1)
 text = "HINT:
 
 To use the correct signal, you'll have to remember what kind of thing Godotbot is..."
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Sonic-transparent" method="_on_area_2d_body_entered"]

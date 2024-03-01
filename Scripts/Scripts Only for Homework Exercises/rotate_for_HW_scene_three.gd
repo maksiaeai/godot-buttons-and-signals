@@ -20,6 +20,8 @@ func _process(delta):
 		transform = transform.rotated_local(rotation_speed)
 	pass
 
-
+func _on_area_2d_body_entered(body:Node2D):
+	is_rotating = true
+	pass # Replace with function body.
 
 

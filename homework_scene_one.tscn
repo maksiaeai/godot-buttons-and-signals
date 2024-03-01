@@ -31,7 +31,6 @@ NOTE: the scripts we use for each homework scene are in the special \"Scripts On
 PS (You can use the visibility eye to reveal a hint in the Scene Hierarchy!)"
 
 [node name="Hint" type="RichTextLabel" parent="."]
-visible = false
 offset_left = 501.0
 offset_top = 302.0
 offset_right = 914.0
@@ -42,3 +41,5 @@ text = "HINT:
 You'll need to copy and paste a function in the rotate_for_HW_scene_one.gd file, but first you'll need to do something else (NOT in the code)
 
 "
+
+[connection signal="pressed" from="Button" to="Sonic-transparent" method="_on_button_pressed"]
